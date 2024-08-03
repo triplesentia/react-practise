@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import "./Form.css";
 import { useTelegram } from "../../hooks/useTelegram";
 
 const Form = () => {
-    const [counry, setCountry] = useState ('');
-    const [street, setStreet] = userState('');
-    const [subject, setSubject] = userState('physical');
+    const [country, setCountry] = useState ('');
+    const [street, setStreet] = useState ('');
+    const [subject, setSubject] = useState('physical');
     const {tg} = useTelegram();
 
     useEffect(() => {
@@ -20,7 +20,7 @@ const Form = () => {
         } else {
             tg.MainButton.show();
         }
-    }, [counry, street])
+    }, [country, street])
 
     const onChangeCountry = (e) => {
         setCountry(e.target.value)
@@ -41,7 +41,7 @@ const Form = () => {
                 className = {'input'} 
                 type = "text" 
                 placeholder= {'Страна'} 
-                value={counry}
+                value={country}
                 onChange={onChangeCountry}
             />
             <input 
